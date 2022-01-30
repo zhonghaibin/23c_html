@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta property="lang" content="en"/>
+    <link href="./assets/css/app.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/libs/custombox/custombox.min.css" rel="stylesheet">
+    <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="navbar-custom">
+        <div class="logo-box"></div>
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile disable-btn waves-effect">
+                    <i class="fe-menu"></i>
+                </button>
+            </li>
+            <li>
+                <h4 class="page-title-main"></h4>
+            </li>
+        </ul>
+    </div>
+    <div class="left-side-menu">
+        <div class="slimscroll-menu">
+            <div class="user-box text-center">
+                <img src="./images/logo.jpg" alt="user-img" title="Mat Helme"
+                     class="img-thumbnail avatar-lg">
+                <div class="dropdown" data-toggle="tooltip" data-placement="bottom" title="Edit profile">
+                    <a href="" class="text-dark h5 mt-2 mb-1 d-block"> haibin zhong</a>
+                    <div class="dropdown-menu user-pro-dropdown">
+                    </div>
+                </div>
+                <div class="text-muted">Agent</div>
+                <ul class="list-inline" style="font-size: 25px;margin-bottom: 0px !important;">
+                    <li class="list-inline-item">
+                        <a href="#" class="text-muted">
+                            <i class="mdi mdi-settings" data-toggle="tooltip" data-placement="bottom"
+                               title="Change Password & Support No"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href=""
+                           onclick="event.preventDefault();  document.getElementById('logout-form').submit();"
+                           class="text-custom">
+                            <i class="mdi mdi-power" data-toggle="tooltip" data-placement="bottom" title="Logout"></i>
+                        </a>
+                        <form id="logout-form" action="" method="POST" class="d-none">
+                            <input type="hidden" name="_token" value=""></form>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="sidebar-menu">
+                <ul class="metismenu" id="side-menu">
+                    <li class="menu-title">Navigation</li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-email-variant"></i>
+                            <span> Inbox </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-console-line"></i>
+                            <span> Create Registration Link </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-account"></i>
+                            <span> Registration </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-account-group"></i>
+                            <span> Agent Listing </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-phone"></i>
+                            <span> Appointment </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-folder"></i>
+                            <span> Sales Report </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="mdi mdi-access-point"></i>
+                            <span> Administration </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div id="app" class="content-page">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-box">
+                            <div>
+                                <div>
+                                    <h4 class="mt-0 header-title">
+                                        <i class="mdi mdi-phone"></i>
+                                        <span> Appointment </span></h4>
+                                    <div class="dropdown">
+                                        <div class="dropdown float-right">
+                                            <button type="button" class="btn btn-xs width-xs btn-warning  waves-light"
+                                                    @click="reset()">
+                                                Reset
+                                            </button>
+                                            <button type="button" class="btn btn-xs width-xs btn-info waves-light"
+                                                    @click="search()">Search
+                                            </button>
+                                        </div>
+                                        <form role="form" class="form-horizontal">
+                                            <label class="col-form-label">Search</label>
+                                            <div class="autosuggest-container">
+                                                <div id="autosuggest">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="input-container">
+                                                <label for="example-date" class="col-form-label">From</label>
+                                                <input id="from-date" type="date" name="date" class="form-control">
+                                            </div>
+                                            <div class="input-container">
+                                                <div class="form-group">
+                                                    <label for="example-date" class="col-form-label">To</label>
+                                                    <input id="example-date" type="date" name="date"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div style="padding:5px 0px;">
+                                    <button class="btn btn-info waves-light btn-sm" onclick="add()">add</button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Agent</th>
+                                        <th>Visitor</th>
+                                        <th>Tel</th>
+                                        <th>Purpose</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-cloak>
+                                        <td><a href="#"></a></td>
+                                        <td><a href="#"></a></td>
+                                        <td><span></span></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="button-list">
+                                            <button class="btn btn-warning waves-light btn-sm">cancel</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table> <!----></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="add" class="demo-modal">
+                <a href="javascript:void(0);" onclick="Custombox.modal.close();" class="demo-close"><i
+                        class="mdi mdi-close"></i></a>
+                <form role="form" class="form-horizontal">
+                    <div class="input-container">
+                        <label class="col-form-label">Date</label>
+                        <input id="from-date-data" type="date" name="date" class="form-control">
+                    </div>
+                    <div class="input-container">
+                    <label class="col-form-label">Time</label>
+                    <input id="from-datetime-tata" type="time" name="date" class="form-control">
+                    </div>
+                    <div class="input-container">
+                        <label class="col-form-label">User-Id</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-container">
+                        <label class="col-form-label">Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-container">
+                        <label class="col-form-label">Tel</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-container">
+                    <label class="col-form-label">Purpose</label>
+                    <input type="text" class="form-control">
+                    </div>
+                    <div class="float-center" style="text-align: center;margin-top: 10px;">
+                        <button type="button"
+                                class="btn  width-xs btn-info waves-light  btn-small">Confirm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        2020 &copy; Super2020
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
+<script src="./assets/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="./assets/js/vendor.min.js"></script>
+<script src="./assets/libs/custombox/custombox.legacy.min.js"></script>
+<script src="./assets/libs/custombox/custombox.min.js"></script>
+<script src="./assets/js/app.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+            demo: function () {
+                let that = this;
+                $.ajax({
+                    url: "",
+                    type: 'get',
+                    data: {},
+                    dataType: 'json',
+                    success: function (res) {
+                    }
+                })
+            }
+        },
+        created() {
+        }
+
+    })
+    function add(){
+        let modal = new Custombox.modal({
+            content: {
+                effect: 'fadein',
+                target: '#add'
+            }
+        });
+        modal.open();
+    }
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta property="lang" content="en"/>
+    <link href="./assets/css/app.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <script src="./assets/js/vue.js"></script>
+</head>
+<body style="padding: 0px">
+<div class="min-h-screen flex flex-col  items-center default-bg">
+    <div class="login-box">
+        <!-- 登录表单 -->
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="user"
+                       style="display:inline;width:200px;" autocomplete="off"
+                       placeholder="User-Id"/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password"
+                       style="display:inline;width:200px;" autocomplete="off"
+                       placeholder="Password"/>
+            </div>
+            <div class="form-group" style="text-align: center">
+                <button type="submit" class="login-bt_yellow btn" STYLE="color: #1a1e24">LOGIN</button>
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script src="./assets/js/jquery/jquery-1.11.1.min.js"></script>
+<script src="./assets/js/vendor.min.js"></script>
+<script src="./assets/libs/custombox/custombox.min.js"></script>
+<script src="./assets/js/app.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+            demo: function () {
+                let that = this;
+                $.ajax({
+                    url: "",
+                    type: 'get',
+                    data: {},
+                    dataType: 'json',
+                    success: function (res) {
+                    }
+                })
+            }
+        },
+        created() {
+        }
+
+    })
+
+</script>
